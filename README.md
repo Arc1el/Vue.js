@@ -379,3 +379,62 @@
 </html>
 ```
 # Event Emit (하위 -> 상위)
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ num }}</p>
+    <!-- <app-header v-on:하위컴포넌트에서 발생한 이름="상위컴포넌트의 메서드 이름"></app-header> -->
+    <app-header v-on:pass="logText">
+    </app-header>
+    <app-content v-on:add="increaseNum"></app-content>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app_header = {
+      template: '<button v-on:click="passEvent">click me</buttion>',
+      methods : {
+        passEvent : function() {
+          this.$emit('pass');
+        }
+      }
+    }
+    var app_content = {
+      template: '<button v-on:click="addEvent">add</buttion>',
+      methods : {
+        addEvent : function() {
+          this.$emit("add")
+        }
+      }
+    }
+
+    new Vue({
+      el: '#app',
+      components: {
+        'app-header' : app_header,
+        'app-content' : app_content
+      },
+      methods : {
+        logText: function() {
+          console.log('hi');
+        },
+        increateNum: function() {
+          this.num ++;
+          console.log(this.num)
+        }
+      },
+      data : {
+        num : 10
+      }
+    })
+  </script>
+</body>
+</html>
+```
