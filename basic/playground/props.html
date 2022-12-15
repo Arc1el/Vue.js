@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <app-header v-bind:propsdata="message"></app-header>
+      <app-content v-bind:propsdata="num"></app-content>
+      <app-footer v-bind:propsdata="res"></app-footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var app_header = {
+        template: "<h1>{{ propsdata }}</h1>",
+        //root data to props
+        props: ['propsdata']
+      }
+
+      var app_content = {
+        template: "<h1>{{ propsdata }}</h1>",
+        //root data to props
+        props: ['propsdata']
+      }
+
+      var app_footer = {
+        template: "<h1>{{ propsdata }}</h1>",
+        //root data to props
+        props: ['propsdata']
+      }
+
+      new Vue({
+        el: '#app',
+        components: {
+          'app-header' : app_header,
+          'app-content' : app_content,
+          'app-footer' : app_footer
+        },
+        data: {
+          //root data
+          message : 'hi',
+          num : 10,
+          res : "ok"
+        }
+      })
+    </script>
+  </body>
+</html>

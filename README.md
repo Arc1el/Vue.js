@@ -207,7 +207,7 @@
     </body>
     ```
 
-- 컴포넌트
+- <a href="https://012.vuejs.org/guide/#Components">컴포넌트</a>
 
   - In Vue.js, every component is simply a Vue instance. Components form a nested tree-like hierarchy that represents your application interface.
   - 재사용성이 올라가고 코드를 최소화 가능
@@ -245,22 +245,20 @@
     ```
 
   - 지역 컴포넌트
+
     ```html
-    new Vue({ 
-      el : "#app",
-      components: { 
-        'app-footer' : { 
-            template : "<footer>footer</footer>" 
-          } 
-        } 
-    });
+    new Vue({ el : "#app", components: { 'app-footer' : { template : "
+    <footer>footer</footer>
+    " } } });
     ```
 
   - 전역컴포넌트와 인스턴스의 관계
     - 전역 컴포넌트의 경우 모든 인스턴스에 대해 모든 컴포넌트가 적용
     - 지역 컴포넌트의 경우 인스턴스 하나에 설정된 컴포넌트들만 적용
     - 보통 지역 컴포넌트를 사용함
+
 - Components Sample Code
+
   ```html
   <!DOCTYPE html>
   <html lang="en">
@@ -287,31 +285,97 @@
       <script>
         //전역컴포넌트
         Vue.component("app-header", {
-          template : "<h1>Header</h1>"
+          template: "<h1>Header</h1>",
         });
 
         Vue.component("app-content", {
-          template : "<div>content</div>"
+          template: "<div>content</div>",
         });
-        
+
         //지역 컴포넌트
         new Vue({
-          el : "#app",
+          el: "#app",
           components: {
-            'app-footer' : {
-              template : "<footer>footer</footer>"
-            }
+            "app-footer": {
+              template: "<footer>footer</footer>",
+            },
           },
         });
 
         new Vue({
           el: "#app2",
-          components: {
-            
-          }
-        })
+          components: {},
+        });
       </script>
     </body>
-
   </html>
   ```
+
+# 컴포넌트 통신 방식
+
+- 뷰 컴포넌트는 각각의 고유한 데이터 유효 범위를 가짐
+- 컴포넌트간 데이터를 주고받기 위해서는 특정한 "규칙"을 따라야 함
+- 규칙(rules)
+  - 상위 -> 하위 : 프롭스 (props)
+  - 하위 -> 상위 : 이벤트 (event)
+    <a href="https://dzone.com/articles/how-do-components-interact-in-vue-and-what-is-vuex"><img src="./img/03components_rules.png"></a>
+- 컴포넌트 통신방식이 필요한 이유
+  - 특정 컴포넌트의 변화에 따라 다른 컴포넌트가 유기적으로 데이터를
+    주고받았을때 데이터의 흐름을 예측하기 어려움 (MVC 패턴)
+  - 프롭스, 이벤트만 사용하므로 데이터의 흐름을 추적하기가 용이해짐 (버그, 디버깅의 유리함. 유지보수의 편리함)
+
+# Props (상위 -> 하위)
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <app-header v-bind:propsdata="message"></app-header>
+      <app-content v-bind:propsdata="num"></app-content>
+      <app-footer v-bind:propsdata="res"></app-footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var app_header = {
+        template: "<h1>{{ propsdata }}</h1>",
+        //root data to props
+        props: ['propsdata']
+      }
+
+      var app_content = {
+        template: "<h1>{{ propsdata }}</h1>",
+        //root data to props
+        props: ['propsdata']
+      }
+
+      var app_footer = {
+        template: "<h1>{{ propsdata }}</h1>",
+        //root data to props
+        props: ['propsdata']
+      }
+
+      new Vue({
+        el: '#app',
+        components: {
+          'app-header' : app_header,
+          'app-content' : app_content,
+          'app-footer' : app_footer
+        },
+        data: {
+          //root data
+          message : 'hi',
+          num : 10,
+          res : "ok"
+        }
+      })
+    </script>
+  </body>
+</html>
+```
+# Event Emit (하위 -> 상위)
