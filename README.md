@@ -176,21 +176,21 @@
   ```
 
 # 뷰 인스턴스와 컴포넌트
+
 - <a href="https://012.vuejs.org/api/">인스턴스</a>
+
   - 생성자 함수
+
     ```html
     new Vue();
     ```
+
     - 인스턴스 옵션
+
     ```html
-    new Vue({ 
-      el:, 
-      template:, 
-      data:, 
-      methods:, 
-      created:, 
-      watch: });
+    new Vue({ el:, template:, data:, methods:, created:, watch: });
     ```
+
     ```html
     <body>
       <div id="app"></div>
@@ -198,18 +198,120 @@
       <script>
         var vm = new Vue({
           el: "#app",
-          data : {
-            message: "hi"
+          data: {
+            message: "hi",
           },
-          methods: {
-
-          },
+          methods: {},
         });
       </script>
     </body>
     ```
+
 - 컴포넌트
+
   - In Vue.js, every component is simply a Vue instance. Components form a nested tree-like hierarchy that represents your application interface.
   - 재사용성이 올라가고 코드를 최소화 가능
     <img src="./img/02components.png" width = "90%">
-  
+  - 인스턴스 생성시 기본적으로 root component로 생성
+  - 컴포넌트 등록
+    ```html
+    Vue.component("컴포넌트 이름", 컴포넌트 내용);
+    ```
+  - 전역 컴포넌트
+
+    ```html
+    <body>
+      <div id="app">
+        <app-header> </app-header>
+        <app-content></app-content>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script>
+        //전역컴포넌트
+        Vue.component("app-header", {
+          template: "<h1>Header</h1>",
+        });
+
+        Vue.component("app-content", {
+          template: "<div>content</div>",
+        });
+
+        new Vue({
+          el: "#app",
+        });
+      </script>
+    </body>
+    ```
+
+  - 지역 컴포넌트
+    ```html
+    new Vue({ 
+      el : "#app",
+      components: { 
+        'app-footer' : { 
+            template : "<footer>footer</footer>" 
+          } 
+        } 
+    });
+    ```
+
+  - 전역컴포넌트와 인스턴스의 관계
+    - 전역 컴포넌트의 경우 모든 인스턴스에 대해 모든 컴포넌트가 적용
+    - 지역 컴포넌트의 경우 인스턴스 하나에 설정된 컴포넌트들만 적용
+    - 보통 지역 컴포넌트를 사용함
+- Components Sample Code
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+    </head>
+    <body>
+      <div id="app">
+        <app-header> </app-header>
+        <app-content></app-content>
+        <app-footer></app-footer>
+      </div>
+      <div id="app2">
+        <!-- 전역으로 선언한 컴포넌트 출력 -->
+        <app-header> </app-header>
+        <!-- 지역으로 선언한 컴포넌트는 출력되지 않음 -->
+        <app-footer></app-footer>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script>
+        //전역컴포넌트
+        Vue.component("app-header", {
+          template : "<h1>Header</h1>"
+        });
+
+        Vue.component("app-content", {
+          template : "<div>content</div>"
+        });
+        
+        //지역 컴포넌트
+        new Vue({
+          el : "#app",
+          components: {
+            'app-footer' : {
+              template : "<footer>footer</footer>"
+            }
+          },
+        });
+
+        new Vue({
+          el: "#app2",
+          components: {
+            
+          }
+        })
+      </script>
+    </body>
+
+  </html>
+  ```
