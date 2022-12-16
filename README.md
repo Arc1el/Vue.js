@@ -466,6 +466,7 @@ new Vue({
 1. event를 사용하여 부모레벨로 전송
 2. 부모레벨에서 데이터를 수신
 3. 부모레벨에서 props를 통해 자식레벨로 전송
+<img src="./img/04components_communication.jpg" width = "90%">
 - ex) app-content (event)-> root (props)-> app-header
   ```html
   <!DOCTYPE html>
@@ -515,3 +516,24 @@ new Vue({
   </body>
   </html>
   ```
+  # 뷰 라우터 설치
+  - npm
+    ```sh
+    npm install vue-router
+    ```
+    ```js
+    import Vue from 'vue'
+    import VueRouter from 'vue-router'
+    Vue.use(VueRouter)
+    ```
+  - yarn
+    ```sh
+    yarn add vue-router
+    ```
+  - CDN
+    ```html
+    <!-- for lst version -->
+    <script src="https://unpkg.com/dist/vue-router.js">
+    // use for Vue2
+    <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js">
+    ```
