@@ -438,3 +438,80 @@
 </body>
 </html>
 ```
+## Vue에서의 this 사용
+일반적인 object에서의 this
+```html
+obj = {
+  num : 10,
+  getNum : function() {
+    console.log(this.num);
+  }
+}
+```
+뷰에서의 this (num의 위치에 유의. 일반적으로는 data 내부에있으므로 참조 불가) data안에 선언하였지만 외부 레벨로 뷰 자체가 설정하므로 사용 가능
+```html
+new Vue({
+  el : "",
+  data : {
+    num : 10
+  },
+  method : {
+    getNum : function() {
+      console.log(this.num);
+    }
+  }
+})
+```
+# 동 컴포넌트 레벨에서의 통신방법
+1. event를 사용하여 부모레벨로 전송
+2. 부모레벨에서 데이터를 수신
+3. 부모레벨에서 props를 통해 자식레벨로 전송
+- ex) app-content (event)-> root (props)-> app-header
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <app-header v-bind:propsdata="num"></app-header>
+      <app-content v-on:pass="deliverNum"></app-content>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var app_header = {
+        template : '<div>header<br><p>{{ propsdata }}</p><div>',
+        props: ['propsdata']
+      }
+      var app_content = {
+        template : '<div>content<br><button v-on:click="passNum">pass</button><div>',
+        methods : {
+          passNum : function(){
+            this.$emit('pass', 10)
+          }
+        },
+      }
+
+      new Vue({
+        el: '#app',
+        data : {
+          num : 0
+        },
+        methods: {
+          deliverNum : function(value){
+            this.num = value;
+          }
+        },
+        components: {
+          'app-header': app_header,
+          'app-content': app_content
+        }
+      })
+    </script>
+  </body>
+  </html>
+  ```
