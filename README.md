@@ -517,7 +517,7 @@ new Vue({
   </html>
   ```
 # 뷰 라우터
-설치
+페이지를 이동할때 사용하는 라이브러리
   - npm
     ```sh
     npm install vue-router
@@ -538,6 +538,42 @@ new Vue({
     // use for Vue2
     <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js">
     ```
+라우터 정의
+  ```js
+  var router = new VueRouter({
+      //페이지의 라우팅 정보
+      //어떤 url -> 어떤 페이지 -> 배열로
+      routes: [
+        {
+          //페이지의 url
+          path: '',
+          //해당 url에서 표시될 컴포넌트
+          component: LoginComponent,
+        },
+        {
+          path: '',
+          component: MainComponent,
+
+        }
+      ]
+    });
+  ```
+라우터 등록
+```js
+new Vue({
+      el: "#app",
+      //라우터 연결
+      router: router
+    });
+```
+라우터링크
+url변경시 route속성에 따라 컴포넌트가 화면에 출력됨
+```html
+<div>
+  <router-link to="/login">Login</router-link>
+  <router-link to="/main">Main</router-link>
+</div>
+```
 Example
   ```html
   <!DOCTYPE html>
@@ -594,3 +630,81 @@ Example
   </body>
   </html>
   ```
+# Axios
+Promise 기반 http통신 라이브러리. 비동기 웹 애플리케이션 제작에 사용됨.
+
+vue-resource라는 라이브러리가 있었으나 더이상 사용하지 않음.
+
+설치(CDN)
+  ```html
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  ```
+사용
+  ```html
+   <script>
+    new Vue({
+      el: '#app',
+      data: {
+        users: []
+      },
+      methods: {
+        getData: function() { 
+          var vm = this;
+          axios.get('https://jsonplaceholder.typicode.com/users/')
+            .then(function(response) {
+              console.log(response.data);
+              //this 사용에 유의할 것
+              vm.users = response.data;
+            })
+            .catch(function(error) {
+              console.log(error);
+            });
+        }
+      }
+    })
+  </script>
+  ```
+예제
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Axios</title>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="getData">get user</button>
+    <div>
+      {{ users }}
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        users: []
+      },
+      methods: {
+        getData: function() { 
+          var vm = this;
+          axios.get('https://jsonplaceholder.typicode.com/users/')
+            .then(function(response) {
+              console.log(response.data);
+              vm.users = response.data;
+            })
+            .catch(function(error) {
+              console.log(error);
+            });
+        }
+      }
+    })
+  </script>
+</body>
+</html>
+```
