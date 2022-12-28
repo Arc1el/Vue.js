@@ -1,19 +1,19 @@
 # Vue.js Starting Guide
 
-# Vue¶õ ¹«¾ùÀÎ°¡?
+# Vueë€ ë¬´ì—‡ì¸ê°€?
 
 - <a href = "https://012.vuejs.org/guide/">Concepts Overview</a>
 
   <img src="./img/01concepts.png" width = "90%">
 
-- MVVMÆĞÅÏÀÇ ºä¸ğµ¨ ·¹ÀÌ¾î¿¡ ÇØ´çÇÏ´Â View ¶óÀÌºê·¯¸®
-- DOM Listenters, DataBindings ·Î ±¸¼º
-- HTML(DOM)¿¡¼­ Á¶ÀÛ -> ¸®½º³Ê°¡ listen -> JavaScript Obj º¯°æ
-- JavaScript Obj º¯°æ -> Data binding -> DOM¹İ¿µ
+- MVVMíŒ¨í„´ì˜ ë·°ëª¨ë¸ ë ˆì´ì–´ì— í•´ë‹¹í•˜ëŠ” View ë¼ì´ë¸ŒëŸ¬ë¦¬
+- DOM Listenters, DataBindings ë¡œ êµ¬ì„±
+- HTML(DOM)ì—ì„œ ì¡°ì‘ -> ë¦¬ìŠ¤ë„ˆê°€ listen -> JavaScript Obj ë³€ê²½
+- JavaScript Obj ë³€ê²½ -> Data binding -> DOMë°˜ì˜
 
-# ±âÁ¸ÀÇ À¥ ÇÁ·ĞÆ® ¿£µå °³¹ß
+# ê¸°ì¡´ì˜ ì›¹ í”„ë¡ íŠ¸ ì—”ë“œ ê°œë°œ
 
-- ±âÁ¸ÀÇ À¥ ÇÁ·ĞÆ®¿£µå °³¹ßÀº HTML, CSS, JavaScript¸¦ »ç¿ëÇØ¿ÔÀ½
+- ê¸°ì¡´ì˜ ì›¹ í”„ë¡ íŠ¸ì—”ë“œ ê°œë°œì€ HTML, CSS, JavaScriptë¥¼ ì‚¬ìš©í•´ì™”ìŒ
 
   ```html
   <!DOCTYPE html>
@@ -37,10 +37,10 @@
   </html>
   ```
 
-- htmlÀº DOMÀ» ±¸¼º, JavaScript´Â DOMÀ» Á¶ÀÛ
-- ´ëºÎºĞÀÇ °ªµéÀº º¯¼ö·Î ÀÌ·ç¾îÁ® ÀÖÀ¸¸ç ÇØ´ç °ªÀ» ÂüÁ¶ÇÏ°Ô µÊ. (ÇÏµåÄÚµù X)
-- ÇØ´ç ÄÚµå¿¡¼­ string°ªÀ» ¹Ù²Û´Ù°í ÇÏ¸é ³»¿ëÀÌ ¹İ¿µµÉ±î? -> X
-- ¾Æ·¡¿Í °°ÀÌ ´Ù½Ã ¿ÀºêÁ§Æ®¸¦ Á¢±ÙÇØ¼­ °ªÀ» º¯°æÇØÁà¾ßÁö¸¸ °ªÀÌ ¹Ù²ñ
+- htmlì€ DOMì„ êµ¬ì„±, JavaScriptëŠ” DOMì„ ì¡°ì‘
+- ëŒ€ë¶€ë¶„ì˜ ê°’ë“¤ì€ ë³€ìˆ˜ë¡œ ì´ë£¨ì–´ì ¸ ìˆìœ¼ë©° í•´ë‹¹ ê°’ì„ ì°¸ì¡°í•˜ê²Œ ë¨. (í•˜ë“œì½”ë”© X)
+- í•´ë‹¹ ì½”ë“œì—ì„œ stringê°’ì„ ë°”ê¾¼ë‹¤ê³  í•˜ë©´ ë‚´ìš©ì´ ë°˜ì˜ë ê¹Œ? -> X
+- ì•„ë˜ì™€ ê°™ì´ ë‹¤ì‹œ ì˜¤ë¸Œì íŠ¸ë¥¼ ì ‘ê·¼í•´ì„œ ê°’ì„ ë³€ê²½í•´ì¤˜ì•¼ì§€ë§Œ ê°’ì´ ë°”ë€œ
 
   ```html
   <script>
@@ -55,18 +55,18 @@
   </script>
   ```
 
-- ÀÌ¸¦ ÇØ°áÇÏÀÚ! -> °³¹ßµÈ ¼ö¸¹Àº ÇÁ·ĞÆ®¿£µå ¶óÀÌºê·¯¸®µé
+- ì´ë¥¼ í•´ê²°í•˜ì! -> ê°œë°œëœ ìˆ˜ë§ì€ í”„ë¡ íŠ¸ì—”ë“œ ë¼ì´ë¸ŒëŸ¬ë¦¬ë“¤
 
 # Reactivity
 
 - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty()</a>
 
   - The static method Object.defineProperty() defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
-  - °´Ã¼ÀÇ Æ¯Á¤ ¼Ó¼º µ¿ÀÛÀ» ÀçÁ¤ÀÇ ÇÏ´Â API
+  - ê°ì²´ì˜ íŠ¹ì • ì†ì„± ë™ì‘ì„ ì¬ì •ì˜ í•˜ëŠ” API
     ```html
-    Object.defineProperty('´ë»ó°´Ã¼', °´Ã¼ÀÇ ¼Ó¼º, { Á¤ÀÇÇÒ ³»¿ë })
+    Object.defineProperty('ëŒ€ìƒê°ì²´', ê°ì²´ì˜ ì†ì„±, { ì •ì˜í•  ë‚´ìš© })
     ```
-  - Reactivity »ç¿ë
+  - Reactivity ì‚¬ìš©
     ```html
     <!DOCTYPE html>
     <html lang="en">
@@ -82,18 +82,18 @@
           var div = document.querySelector("#app");
           var viewModel = {};
           /*
-            Object.defineProperty('´ë»ó°´Ã¼', °´Ã¼ÀÇ ¼Ó¼º, {
-                Á¤ÀÇÇÒ ³»¿ë
+            Object.defineProperty('ëŒ€ìƒê°ì²´', ê°ì²´ì˜ ì†ì„±, {
+                ì •ì˜í•  ë‚´ìš©
             })
           */
           Object.defineProperty(viewModel, "str", {
-            //¼Ó¼º¿¡ Á¢±ÙÇßÀ»¶§ µ¿ÀÛ Á¤ÀÇ
+            //ì†ì„±ì— ì ‘ê·¼í–ˆì„ë•Œ ë™ì‘ ì •ì˜
             get: function () {
-              console.log("Á¢±Ù");
+              console.log("ì ‘ê·¼");
             },
-            //¼Ó¼ºÀÇ °ªÀ» ÇÒ´çÇßÀ»¶§ µ¿ÀÛ Á¤ÀÇ
+            //ì†ì„±ì˜ ê°’ì„ í• ë‹¹í–ˆì„ë•Œ ë™ì‘ ì •ì˜
             set: function (newValue) {
-              console.log("ÇÒ´ç", newValue);
+              console.log("í• ë‹¹", newValue);
               div.innerHTML = newValue;
             },
           });
@@ -103,16 +103,16 @@
     ```
     ```log
     viewModel.str = "hi"
-    vue-way.html:26 ÇÒ´ç hi
+    vue-way.html:26 í• ë‹¹ hi
     'hi'
     viewModel.str = "hi!!!"
-    vue-way.html:26 ÇÒ´ç hi!!!
+    vue-way.html:26 í• ë‹¹ hi!!!
     'hi!!!'
     ```
-  - Reactivity ¶óÀÌºê·¯¸®È­
+  - Reactivity ë¼ì´ë¸ŒëŸ¬ë¦¬í™”
 
-    - Áï½Ã½ÇÇà ÇÔ¼ö¸¦ È°¿ë, init°ú render¸¦ application logic¿¡ ³ëÃâµÇÁö ¾Êµµ·Ï ¶Ç´Ù¸¥ scope¿¡ ³Ö¾îÁÜ.
-    - ÀÏ¹İÀûÀÎ ¿ÀÇÂ¼Ò½º ¶óÀÌºê·¯¸®ÀÇ ÀÛ¼º¹ı Áß ÇÏ³ª.
+    - ì¦‰ì‹œì‹¤í–‰ í•¨ìˆ˜ë¥¼ í™œìš©, initê³¼ renderë¥¼ application logicì— ë…¸ì¶œë˜ì§€ ì•Šë„ë¡ ë˜ë‹¤ë¥¸ scopeì— ë„£ì–´ì¤Œ.
+    - ì¼ë°˜ì ì¸ ì˜¤í”ˆì†ŒìŠ¤ ë¼ì´ë¸ŒëŸ¬ë¦¬ì˜ ì‘ì„±ë²• ì¤‘ í•˜ë‚˜.
 
     ```html
     <body>
@@ -121,17 +121,17 @@
         var div = document.querySelector("#app");
         var viewModel = {};
 
-        //Áï½Ã½ÇÇà
+        //ì¦‰ì‹œì‹¤í–‰
         (function () {
           function init() {
             Object.defineProperty(viewModel, "str", {
-              //¼Ó¼º¿¡ Á¢±ÙÇßÀ»¶§ µ¿ÀÛ Á¤ÀÇ
+              //ì†ì„±ì— ì ‘ê·¼í–ˆì„ë•Œ ë™ì‘ ì •ì˜
               get: function () {
-                console.log("Á¢±Ù");
+                console.log("ì ‘ê·¼");
               },
-              //¼Ó¼ºÀÇ °ªÀ» ÇÒ´çÇßÀ»¶§ µ¿ÀÛ Á¤ÀÇ
+              //ì†ì„±ì˜ ê°’ì„ í• ë‹¹í–ˆì„ë•Œ ë™ì‘ ì •ì˜
               set: function (newValue) {
-                console.log("ÇÒ´ç", newValue);
+                console.log("í• ë‹¹", newValue);
                 render(newValue);
               },
             });
@@ -147,9 +147,9 @@
     </body>
     ```
 
-# Vue¸¦ È°¿ëÇÑ Reactivity
+# Vueë¥¼ í™œìš©í•œ Reactivity
 
-- Vue ¶óÀÌºê·¯¸®¸¦ È°¿ëÇÏ¿© Reactivity¸¦ ±¸Çö
+- Vue ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ í™œìš©í•˜ì—¬ Reactivityë¥¼ êµ¬í˜„
 
   ```html
   <!DOCTYPE html>
@@ -175,17 +175,17 @@
   </html>
   ```
 
-# ºä ÀÎ½ºÅÏ½º¿Í ÄÄÆ÷³ÍÆ®
+# ë·° ì¸ìŠ¤í„´ìŠ¤ì™€ ì»´í¬ë„ŒíŠ¸
 
-- <a href="https://012.vuejs.org/api/">ÀÎ½ºÅÏ½º</a>
+- <a href="https://012.vuejs.org/api/">ì¸ìŠ¤í„´ìŠ¤</a>
 
-  - »ı¼ºÀÚ ÇÔ¼ö
+  - ìƒì„±ì í•¨ìˆ˜
 
     ```html
     new Vue();
     ```
 
-    - ÀÎ½ºÅÏ½º ¿É¼Ç
+    - ì¸ìŠ¤í„´ìŠ¤ ì˜µì…˜
 
     ```html
     new Vue({ el:, template:, data:, methods:, created:, watch: });
@@ -207,17 +207,17 @@
     </body>
     ```
 
-- <a href="https://012.vuejs.org/guide/#Components">ÄÄÆ÷³ÍÆ®</a>
+- <a href="https://012.vuejs.org/guide/#Components">ì»´í¬ë„ŒíŠ¸</a>
 
   - In Vue.js, every component is simply a Vue instance. Components form a nested tree-like hierarchy that represents your application interface.
-  - Àç»ç¿ë¼ºÀÌ ¿Ã¶ó°¡°í ÄÚµå¸¦ ÃÖ¼ÒÈ­ °¡´É
+  - ì¬ì‚¬ìš©ì„±ì´ ì˜¬ë¼ê°€ê³  ì½”ë“œë¥¼ ìµœì†Œí™” ê°€ëŠ¥
     <img src="./img/02components.png" width = "90%">
-  - ÀÎ½ºÅÏ½º »ı¼º½Ã ±âº»ÀûÀ¸·Î root component·Î »ı¼º
-  - ÄÄÆ÷³ÍÆ® µî·Ï
+  - ì¸ìŠ¤í„´ìŠ¤ ìƒì„±ì‹œ ê¸°ë³¸ì ìœ¼ë¡œ root componentë¡œ ìƒì„±
+  - ì»´í¬ë„ŒíŠ¸ ë“±ë¡
     ```html
-    Vue.component("ÄÄÆ÷³ÍÆ® ÀÌ¸§", ÄÄÆ÷³ÍÆ® ³»¿ë);
+    Vue.component("ì»´í¬ë„ŒíŠ¸ ì´ë¦„", ì»´í¬ë„ŒíŠ¸ ë‚´ìš©);
     ```
-  - Àü¿ª ÄÄÆ÷³ÍÆ®
+  - ì „ì—­ ì»´í¬ë„ŒíŠ¸
 
     ```html
     <body>
@@ -228,7 +228,7 @@
 
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
       <script>
-        //Àü¿ªÄÄÆ÷³ÍÆ®
+        //ì „ì—­ì»´í¬ë„ŒíŠ¸
         Vue.component("app-header", {
           template: "<h1>Header</h1>",
         });
@@ -244,7 +244,7 @@
     </body>
     ```
 
-  - Áö¿ª ÄÄÆ÷³ÍÆ®
+  - ì§€ì—­ ì»´í¬ë„ŒíŠ¸
 
     ```html
     new Vue({ el : "#app", components: { 'app-footer' : { template : "
@@ -252,10 +252,10 @@
     " } } });
     ```
 
-  - Àü¿ªÄÄÆ÷³ÍÆ®¿Í ÀÎ½ºÅÏ½ºÀÇ °ü°è
-    - Àü¿ª ÄÄÆ÷³ÍÆ®ÀÇ °æ¿ì ¸ğµç ÀÎ½ºÅÏ½º¿¡ ´ëÇØ ¸ğµç ÄÄÆ÷³ÍÆ®°¡ Àû¿ë
-    - Áö¿ª ÄÄÆ÷³ÍÆ®ÀÇ °æ¿ì ÀÎ½ºÅÏ½º ÇÏ³ª¿¡ ¼³Á¤µÈ ÄÄÆ÷³ÍÆ®µé¸¸ Àû¿ë
-    - º¸Åë Áö¿ª ÄÄÆ÷³ÍÆ®¸¦ »ç¿ëÇÔ
+  - ì „ì—­ì»´í¬ë„ŒíŠ¸ì™€ ì¸ìŠ¤í„´ìŠ¤ì˜ ê´€ê³„
+    - ì „ì—­ ì»´í¬ë„ŒíŠ¸ì˜ ê²½ìš° ëª¨ë“  ì¸ìŠ¤í„´ìŠ¤ì— ëŒ€í•´ ëª¨ë“  ì»´í¬ë„ŒíŠ¸ê°€ ì ìš©
+    - ì§€ì—­ ì»´í¬ë„ŒíŠ¸ì˜ ê²½ìš° ì¸ìŠ¤í„´ìŠ¤ í•˜ë‚˜ì— ì„¤ì •ëœ ì»´í¬ë„ŒíŠ¸ë“¤ë§Œ ì ìš©
+    - ë³´í†µ ì§€ì—­ ì»´í¬ë„ŒíŠ¸ë¥¼ ì‚¬ìš©í•¨
 
 - Components Sample Code
 
@@ -275,15 +275,15 @@
         <app-footer></app-footer>
       </div>
       <div id="app2">
-        <!-- Àü¿ªÀ¸·Î ¼±¾ğÇÑ ÄÄÆ÷³ÍÆ® Ãâ·Â -->
+        <!-- ì „ì—­ìœ¼ë¡œ ì„ ì–¸í•œ ì»´í¬ë„ŒíŠ¸ ì¶œë ¥ -->
         <app-header> </app-header>
-        <!-- Áö¿ªÀ¸·Î ¼±¾ğÇÑ ÄÄÆ÷³ÍÆ®´Â Ãâ·ÂµÇÁö ¾ÊÀ½ -->
+        <!-- ì§€ì—­ìœ¼ë¡œ ì„ ì–¸í•œ ì»´í¬ë„ŒíŠ¸ëŠ” ì¶œë ¥ë˜ì§€ ì•ŠìŒ -->
         <app-footer></app-footer>
       </div>
 
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
       <script>
-        //Àü¿ªÄÄÆ÷³ÍÆ®
+        //ì „ì—­ì»´í¬ë„ŒíŠ¸
         Vue.component("app-header", {
           template: "<h1>Header</h1>",
         });
@@ -292,7 +292,7 @@
           template: "<div>content</div>",
         });
 
-        //Áö¿ª ÄÄÆ÷³ÍÆ®
+        //ì§€ì—­ ì»´í¬ë„ŒíŠ¸
         new Vue({
           el: "#app",
           components: {
@@ -311,20 +311,20 @@
   </html>
   ```
 
-# ÄÄÆ÷³ÍÆ® Åë½Å ¹æ½Ä
+# ì»´í¬ë„ŒíŠ¸ í†µì‹  ë°©ì‹
 
-- ºä ÄÄÆ÷³ÍÆ®´Â °¢°¢ÀÇ °íÀ¯ÇÑ µ¥ÀÌÅÍ À¯È¿ ¹üÀ§¸¦ °¡Áü
-- ÄÄÆ÷³ÍÆ®°£ µ¥ÀÌÅÍ¸¦ ÁÖ°í¹Ş±â À§ÇØ¼­´Â Æ¯Á¤ÇÑ "±ÔÄ¢"À» µû¶ó¾ß ÇÔ
-- ±ÔÄ¢(rules)
-  - »óÀ§ -> ÇÏÀ§ : ÇÁ·Ó½º (props)
-  - ÇÏÀ§ -> »óÀ§ : ÀÌº¥Æ® (event)
+- ë·° ì»´í¬ë„ŒíŠ¸ëŠ” ê°ê°ì˜ ê³ ìœ í•œ ë°ì´í„° ìœ íš¨ ë²”ìœ„ë¥¼ ê°€ì§
+- ì»´í¬ë„ŒíŠ¸ê°„ ë°ì´í„°ë¥¼ ì£¼ê³ ë°›ê¸° ìœ„í•´ì„œëŠ” íŠ¹ì •í•œ "ê·œì¹™"ì„ ë”°ë¼ì•¼ í•¨
+- ê·œì¹™(rules)
+  - ìƒìœ„ -> í•˜ìœ„ : í”„ë¡­ìŠ¤ (props)
+  - í•˜ìœ„ -> ìƒìœ„ : ì´ë²¤íŠ¸ (event)
     <a href="https://dzone.com/articles/how-do-components-interact-in-vue-and-what-is-vuex"><img src="./img/03components_rules.png"></a>
-- ÄÄÆ÷³ÍÆ® Åë½Å¹æ½ÄÀÌ ÇÊ¿äÇÑ ÀÌÀ¯
-  - Æ¯Á¤ ÄÄÆ÷³ÍÆ®ÀÇ º¯È­¿¡ µû¶ó ´Ù¸¥ ÄÄÆ÷³ÍÆ®°¡ À¯±âÀûÀ¸·Î µ¥ÀÌÅÍ¸¦
-    ÁÖ°í¹Ş¾ÒÀ»¶§ µ¥ÀÌÅÍÀÇ Èå¸§À» ¿¹ÃøÇÏ±â ¾î·Á¿ò (MVC ÆĞÅÏ)
-  - ÇÁ·Ó½º, ÀÌº¥Æ®¸¸ »ç¿ëÇÏ¹Ç·Î µ¥ÀÌÅÍÀÇ Èå¸§À» ÃßÀûÇÏ±â°¡ ¿ëÀÌÇØÁü (¹ö±×, µğ¹ö±ëÀÇ À¯¸®ÇÔ. À¯Áöº¸¼öÀÇ Æí¸®ÇÔ)
+- ì»´í¬ë„ŒíŠ¸ í†µì‹ ë°©ì‹ì´ í•„ìš”í•œ ì´ìœ 
+  - íŠ¹ì • ì»´í¬ë„ŒíŠ¸ì˜ ë³€í™”ì— ë”°ë¼ ë‹¤ë¥¸ ì»´í¬ë„ŒíŠ¸ê°€ ìœ ê¸°ì ìœ¼ë¡œ ë°ì´í„°ë¥¼
+    ì£¼ê³ ë°›ì•˜ì„ë•Œ ë°ì´í„°ì˜ íë¦„ì„ ì˜ˆì¸¡í•˜ê¸° ì–´ë ¤ì›€ (MVC íŒ¨í„´)
+  - í”„ë¡­ìŠ¤, ì´ë²¤íŠ¸ë§Œ ì‚¬ìš©í•˜ë¯€ë¡œ ë°ì´í„°ì˜ íë¦„ì„ ì¶”ì í•˜ê¸°ê°€ ìš©ì´í•´ì§ (ë²„ê·¸, ë””ë²„ê¹…ì˜ ìœ ë¦¬í•¨. ìœ ì§€ë³´ìˆ˜ì˜ í¸ë¦¬í•¨)
 
-# Props (»óÀ§ -> ÇÏÀ§)
+# Props (ìƒìœ„ -> í•˜ìœ„)
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -378,7 +378,8 @@
   </body>
 </html>
 ```
-# Event Emit (ÇÏÀ§ -> »óÀ§)
+# Event Emit (í•˜ìœ„ -> ìƒìœ„)
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -391,7 +392,7 @@
 <body>
   <div id="app">
     <p>{{ num }}</p>
-    <!-- <app-header v-on:ÇÏÀ§ÄÄÆ÷³ÍÆ®¿¡¼­ ¹ß»ıÇÑ ÀÌ¸§="»óÀ§ÄÄÆ÷³ÍÆ®ÀÇ ¸Ş¼­µå ÀÌ¸§"></app-header> -->
+    <!-- <app-header v-on:í•˜ìœ„ì»´í¬ë„ŒíŠ¸ì—ì„œ ë°œìƒí•œ ì´ë¦„="ìƒìœ„ì»´í¬ë„ŒíŠ¸ì˜ ë©”ì„œë“œ ì´ë¦„"></app-header> -->
     <app-header v-on:pass="logText">
     </app-header>
     <app-content v-on:add="increaseNum"></app-content>
@@ -438,8 +439,9 @@
 </body>
 </html>
 ```
-## Vue¿¡¼­ÀÇ this »ç¿ë
-ÀÏ¹İÀûÀÎ object¿¡¼­ÀÇ this
+
+## Vueì—ì„œì˜ this ì‚¬ìš©
+ì¼ë°˜ì ì¸ objectì—ì„œì˜ this
 ```html
 obj = {
   num : 10,
@@ -448,7 +450,7 @@ obj = {
   }
 }
 ```
-ºä¿¡¼­ÀÇ this (numÀÇ À§Ä¡¿¡ À¯ÀÇ. ÀÏ¹İÀûÀ¸·Î´Â data ³»ºÎ¿¡ÀÖÀ¸¹Ç·Î ÂüÁ¶ ºÒ°¡) data¾È¿¡ ¼±¾ğÇÏ¿´Áö¸¸ ¿ÜºÎ ·¹º§·Î ºä ÀÚÃ¼°¡ ¼³Á¤ÇÏ¹Ç·Î »ç¿ë °¡´É
+ë·°ì—ì„œì˜ this (numì˜ ìœ„ì¹˜ì— ìœ ì˜. ì¼ë°˜ì ìœ¼ë¡œëŠ” data ë‚´ë¶€ì—ìˆìœ¼ë¯€ë¡œ ì°¸ì¡° ë¶ˆê°€) dataì•ˆì— ì„ ì–¸í•˜ì˜€ì§€ë§Œ ì™¸ë¶€ ë ˆë²¨ë¡œ ë·° ìì²´ê°€ ì„¤ì •í•˜ë¯€ë¡œ ì‚¬ìš© ê°€ëŠ¥
 ```html
 new Vue({
   el : "",
@@ -462,13 +464,14 @@ new Vue({
   }
 })
 ```
-# µ¿ ÄÄÆ÷³ÍÆ® ·¹º§¿¡¼­ÀÇ Åë½Å¹æ¹ı
-1. event¸¦ »ç¿ëÇÏ¿© ºÎ¸ğ·¹º§·Î Àü¼Û
-2. ºÎ¸ğ·¹º§¿¡¼­ µ¥ÀÌÅÍ¸¦ ¼ö½Å
-3. ºÎ¸ğ·¹º§¿¡¼­ props¸¦ ÅëÇØ ÀÚ½Ä·¹º§·Î Àü¼Û
+# ë™ ì»´í¬ë„ŒíŠ¸ ë ˆë²¨ì—ì„œì˜ í†µì‹ ë°©ë²•
+1. eventë¥¼ ì‚¬ìš©í•˜ì—¬ ë¶€ëª¨ë ˆë²¨ë¡œ ì „ì†¡
+2. ë¶€ëª¨ë ˆë²¨ì—ì„œ ë°ì´í„°ë¥¼ ìˆ˜ì‹ 
+3. ë¶€ëª¨ë ˆë²¨ì—ì„œ propsë¥¼ í†µí•´ ìì‹ë ˆë²¨ë¡œ ì „ì†¡
 <img src="./img/04components_communication.jpg" width = "90%">
-- ex) app-content (event)-> root (props)-> app-header
-  ```html
+ex) app-content (event)-> root (props)-> app-header
+
+```html
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -515,9 +518,9 @@ new Vue({
     </script>
   </body>
   </html>
-  ```
-# ºä ¶ó¿ìÅÍ
-ÆäÀÌÁö¸¦ ÀÌµ¿ÇÒ¶§ »ç¿ëÇÏ´Â ¶óÀÌºê·¯¸®
+```
+# ë·° ë¼ìš°í„°
+í˜ì´ì§€ë¥¼ ì´ë™í• ë•Œ ì‚¬ìš©í•˜ëŠ” ë¼ì´ë¸ŒëŸ¬ë¦¬
   - npm
     ```sh
     npm install vue-router
@@ -538,16 +541,16 @@ new Vue({
     // use for Vue2
     <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js">
     ```
-¶ó¿ìÅÍ Á¤ÀÇ
+ë¼ìš°í„° ì •ì˜
   ```js
   var router = new VueRouter({
-      //ÆäÀÌÁöÀÇ ¶ó¿ìÆÃ Á¤º¸
-      //¾î¶² url -> ¾î¶² ÆäÀÌÁö -> ¹è¿­·Î
+      //í˜ì´ì§€ì˜ ë¼ìš°íŒ… ì •ë³´
+      //ì–´ë–¤ url -> ì–´ë–¤ í˜ì´ì§€ -> ë°°ì—´ë¡œ
       routes: [
         {
-          //ÆäÀÌÁöÀÇ url
+          //í˜ì´ì§€ì˜ url
           path: '',
-          //ÇØ´ç url¿¡¼­ Ç¥½ÃµÉ ÄÄÆ÷³ÍÆ®
+          //í•´ë‹¹ urlì—ì„œ í‘œì‹œë  ì»´í¬ë„ŒíŠ¸
           component: LoginComponent,
         },
         {
@@ -558,16 +561,16 @@ new Vue({
       ]
     });
   ```
-¶ó¿ìÅÍ µî·Ï
+ë¼ìš°í„° ë“±ë¡
 ```js
 new Vue({
       el: "#app",
-      //¶ó¿ìÅÍ ¿¬°á
+      //ë¼ìš°í„° ì—°ê²°
       router: router
     });
 ```
-¶ó¿ìÅÍ¸µÅ©
-urlº¯°æ½Ã route¼Ó¼º¿¡ µû¶ó ÄÄÆ÷³ÍÆ®°¡ È­¸é¿¡ Ãâ·ÂµÊ
+ë¼ìš°í„°ë§í¬
+urlë³€ê²½ì‹œ routeì†ì„±ì— ë”°ë¼ ì»´í¬ë„ŒíŠ¸ê°€ í™”ë©´ì— ì¶œë ¥ë¨
 ```html
 <div>
   <router-link to="/login">Login</router-link>
@@ -603,13 +606,13 @@ Example
       }
 
       var router = new VueRouter({
-        //ÆäÀÌÁöÀÇ ¶ó¿ìÆÃ Á¤º¸
-        //¾î¶² url -> ¾î¶² ÆäÀÌÁö -> ¹è¿­·Î
+        //í˜ì´ì§€ì˜ ë¼ìš°íŒ… ì •ë³´
+        //ì–´ë–¤ url -> ì–´ë–¤ í˜ì´ì§€ -> ë°°ì—´ë¡œ
         routes: [
           {
-            //ÆäÀÌÁöÀÇ url
+            //í˜ì´ì§€ì˜ url
             path: '/login',
-            //ÇØ´ç url¿¡¼­ Ç¥½ÃµÉ ÄÄÆ÷³ÍÆ®
+            //í•´ë‹¹ urlì—ì„œ í‘œì‹œë  ì»´í¬ë„ŒíŠ¸
             component: LoginComponent,
           },
           {
@@ -622,7 +625,7 @@ Example
 
       new Vue({
         el: "#app",
-        //¶ó¿ìÅÍ ¿¬°á
+        //ë¼ìš°í„° ì—°ê²°
         router: router
       });
 
@@ -631,15 +634,15 @@ Example
   </html>
   ```
 # Axios
-Promise ±â¹İ httpÅë½Å ¶óÀÌºê·¯¸®. ºñµ¿±â À¥ ¾ÖÇÃ¸®ÄÉÀÌ¼Ç Á¦ÀÛ¿¡ »ç¿ëµÊ.
+Promise ê¸°ë°˜ httpí†µì‹  ë¼ì´ë¸ŒëŸ¬ë¦¬. ë¹„ë™ê¸° ì›¹ ì• í”Œë¦¬ì¼€ì´ì…˜ ì œì‘ì— ì‚¬ìš©ë¨.
 
-vue-resource¶ó´Â ¶óÀÌºê·¯¸®°¡ ÀÖ¾úÀ¸³ª ´õÀÌ»ó »ç¿ëÇÏÁö ¾ÊÀ½.
+vue-resourceë¼ëŠ” ë¼ì´ë¸ŒëŸ¬ë¦¬ê°€ ìˆì—ˆìœ¼ë‚˜ ë”ì´ìƒ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ.
 
-¼³Ä¡(CDN)
+ì„¤ì¹˜(CDN)
   ```html
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   ```
-»ç¿ë
+ì‚¬ìš©
   ```html
    <script>
     new Vue({
@@ -653,7 +656,7 @@ vue-resource¶ó´Â ¶óÀÌºê·¯¸®°¡ ÀÖ¾úÀ¸³ª ´õÀÌ»ó »ç¿ëÇÏÁö ¾ÊÀ½.
           axios.get('https://jsonplaceholder.typicode.com/users/')
             .then(function(response) {
               console.log(response.data);
-              //this »ç¿ë¿¡ À¯ÀÇÇÒ °Í
+              //this ì‚¬ìš©ì— ìœ ì˜í•  ê²ƒ
               vm.users = response.data;
             })
             .catch(function(error) {
@@ -664,7 +667,7 @@ vue-resource¶ó´Â ¶óÀÌºê·¯¸®°¡ ÀÖ¾úÀ¸³ª ´õÀÌ»ó »ç¿ëÇÏÁö ¾ÊÀ½.
     })
   </script>
   ```
-¿¹Á¦
+ì˜ˆì œ
 ```html
 <!DOCTYPE html>
 <html lang="en">
